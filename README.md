@@ -1,5 +1,4 @@
 # sentence-builder-backend
-Sentence Builder Backend
 Welcome to the backend repository of Sentence Builder, a cutting-edge project that empowers users to dynamically construct sentences with precision and flair! This backend is meticulously crafted using NestJS, embracing the elegance of microservices, Docker containerization, and robust API communication practices.
 
 **Features:

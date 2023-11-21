@@ -1,12 +1,12 @@
-import { Controller, Get } from '@nestjs/common'
+import { Controller, Get, Param } from '@nestjs/common'
 import { WordsService } from './words.service'
 
 @Controller('words')
 export class WordsController {
     constructor(private readonly wordsService: WordsService) {}
 
-    @Get()
-    getAllWords() {
-        return this.wordsService.getAllWords()
+    @Get(':wordType') // Adjusted to include a parameter for wordType
+    getWordsByType(@Param('wordType') wordType: string) {
+        return this.wordsService.getWordsByType(wordType)
     }
 }

@@ -17,4 +17,9 @@ export class WordsService {
     getAllWords() {
         return this.words
     }
+
+    getWordsByType(wordType: string): string[] {
+        const normalizedWordType = wordType.toLowerCase() // Normalize to lowercase for case-insensitivity
+        return this.words[normalizedWordType] || []
+    }
 }

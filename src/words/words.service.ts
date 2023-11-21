@@ -18,7 +18,7 @@ export class WordsService {
         return this.words
     }
 
-    ggetWordsByType(wordType: string): string[] {
+    getWordsByType(wordType: string): string[] {
         const normalizedWordType =
             wordType.charAt(0).toUpperCase() + wordType.slice(1).toLowerCase()
         return this.words[normalizedWordType] || []

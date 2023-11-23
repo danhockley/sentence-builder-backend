@@ -1,17 +1,24 @@
+// src/words/words.service.ts
 import { Injectable } from '@nestjs/common'
+import * as fs from 'fs'
 
 @Injectable()
 export class WordsService {
-    private readonly words: Record<string, string[]> = {
-        Noun: ['cat', 'dog', 'house'],
-        Verb: ['run', 'jump', 'sing'],
-        Adjective: ['happy', 'sad', 'big'],
-        Adverb: ['quickly', 'slowly', 'loudly'],
-        Pronoun: ['he', 'she', 'it'],
-        Preposition: ['in', 'on', 'under'],
-        Conjunction: ['and', 'but', 'or'],
-        Determiner: ['a', 'an', 'the'],
-        Exclamation: ['wow', 'ouch', 'yay'],
+    private readonly words: Record<string, string[]>
+
+    constructor() {
+        const configPath = './config/words.config.json'
+        this.words = this.loadWordsFromConfig(configPath)
+    }
+
+    private loadWordsFromConfig(configPath: string): Record<string, string[]> {
+        try {
+            const configFile = fs.readFileSync(configPath, 'utf-8')
+            return JSON.parse(configFile)
+        } catch (error) {
+            console.error(`Error loading words configuration: ${error}`)
+            return {}
+        }
     }
 
     getAllWords() {

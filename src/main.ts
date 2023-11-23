@@ -7,7 +7,7 @@ async function bootstrap() {
 
     // Enable CORS
     const corsOptions: CorsOptions = {
-        origin: 'http://localhost:4200', // Update with your frontend URL
+        origin: '*', // Allow all domains // Update with your frontend URL
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
         credentials: true,
     }

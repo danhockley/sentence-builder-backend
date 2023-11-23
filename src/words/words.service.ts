@@ -1,4 +1,3 @@
-// src/words/words.service.ts
 import { Injectable } from '@nestjs/common'
 import * as fs from 'fs'
 
@@ -29,5 +28,10 @@ export class WordsService {
         const normalizedWordType =
             wordType.charAt(0).toUpperCase() + wordType.slice(1).toLowerCase()
         return this.words[normalizedWordType] || []
+    }
+
+    getWordTypes(): string[] {
+        // Extract and return the keys (word types) from the configuration
+        return Object.keys(this.words)
     }
 }

@@ -1,0 +1,11 @@
+{
+    "Noun": ["cat", "dog", "house", "tree", "car"],
+    "Verb": ["run", "jump", "sing", "eat", "sleep"],
+    "Adjective": ["happy", "sad", "big", "small", "colorful"],
+    "Adverb": ["quickly", "slowly", "loudly", "softly", "briskly"],
+    "Pronoun": ["he", "she", "it", "they", "we"],
+    "Preposition": ["in", "on", "under", "over", "between"],
+    "Conjunction": ["and", "but", "or", "however", "therefore"],
+    "Determiner": ["a", "an", "the", "some", "any"],
+    "Exclamation": ["wow", "ouch", "yay", "oh", "hey"]
+}

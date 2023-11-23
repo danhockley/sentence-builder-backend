@@ -12,8 +12,10 @@ export class WordsController {
         return this.wordsService.getWordsByType(wordType)
     }
 
-    @Get('types') // New route to get all word types
+    @Get('types')
     getWordTypes() {
-        return this.wordsService.getWordTypes()
+        const wordTypes = this.wordsService.getWordTypes()
+        console.log('Word Types:', wordTypes)
+        return wordTypes
     }
 }

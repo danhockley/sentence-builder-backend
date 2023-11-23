@@ -18,4 +18,16 @@ export class SentencesService {
         const newSentence = new this.sentenceModel({ words: sentence })
         return newSentence.save()
     }
+
+    async updateSentence(id: string, sentence: string[]) {
+        return this.sentenceModel.findByIdAndUpdate(
+            id,
+            { words: sentence },
+            { new: true },
+        )
+    }
+
+    async deleteSentence(id: string) {
+        return this.sentenceModel.findByIdAndDelete(id)
+    }
 }

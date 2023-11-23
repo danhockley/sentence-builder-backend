@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common'
+import { Controller, Get, Post, Body, Put, Delete, Param } from '@nestjs/common'
 import { SentencesService } from './sentences.service'
 
 @Controller('sentences')
@@ -14,5 +14,19 @@ export class SentencesController {
     createSentence(@Body() body: { sentence: string[] }) {
         const { sentence } = body
         return this.sentencesService.createSentence(sentence)
+    }
+
+    @Put(':id')
+    updateSentence(
+        @Param('id') id: string,
+        @Body() body: { sentence: string[] },
+    ) {
+        const { sentence } = body
+        return this.sentencesService.updateSentence(id, sentence)
+    }
+
+    @Delete(':id')
+    deleteSentence(@Param('id') id: string) {
+        return this.sentencesService.deleteSentence(id)
     }
 }

@@ -11,7 +11,8 @@ export class SentencesController {
     }
 
     @Post()
-    createSentence(@Body() sentence: string[]) {
+    createSentence(@Body() body: { sentence: string[] }) {
+        const { sentence } = body
         return this.sentencesService.createSentence(sentence)
     }
 }

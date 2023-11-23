@@ -5,13 +5,16 @@ import { SentencesService } from './sentences.service'
 export class SentencesController {
     constructor(private readonly sentencesService: SentencesService) {}
 
+    // Handler for GET requests to retrieve all sentences
     @Get()
     getAllSentences() {
         return this.sentencesService.getAllSentences()
     }
 
+    // Handler for POST requests to create a new sentence
     @Post()
     createSentence(@Body() body: { sentence: string[] }) {
+        // Extract the sentence array from the request body
         const { sentence } = body
         return this.sentencesService.createSentence(sentence)
     }
@@ -27,6 +30,7 @@ export class SentencesController {
 
     @Delete(':id')
     deleteSentence(@Param('id') id: string) {
+        // Extract the sentence ID from the request parameters
         return this.sentencesService.deleteSentence(id)
     }
 }

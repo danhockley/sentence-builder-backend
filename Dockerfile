@@ -21,5 +21,7 @@ COPY package.json .
 RUN npm install --only=production
 # Copy the built application from the build stage to the runtime stage
 COPY --from=build /app/dist ./dist
+# Copy the configuration files
+COPY config ./config
 # Command to run your application in production mode
 CMD npm run start:prod

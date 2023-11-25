@@ -2,7 +2,7 @@ name: Deploy to AWS Fargate CI/CD
 
 on:
     push:
-        branches: [deploy-to-ecs-fargate]
+        branches: [deploy-to-aws-fargate]
 
 jobs:
     build:

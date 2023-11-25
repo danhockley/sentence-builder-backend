@@ -39,7 +39,7 @@ jobs:
               id: task-def
               uses: aws-actions/amazon-ecs-render-task-definition@v1
               with:
-                  task-definition: SB-Backend.json
+                  task-definition: sentence-builder-backend-task-definition.json
                   container-name: SB-Backend
                   image: ${{ steps.build-image.outputs.image }}
 
@@ -47,6 +47,6 @@ jobs:
               uses: aws-actions/amazon-ecs-deploy-task-definition@v1
               with:
                   task-definition: ${{ steps.task-def.outputs.task-definition }}
-                  service: SB-Backend
+                  service: sentence-builder-be-service
                   cluster: SB-Backend
                   wait-for-service-stability: true

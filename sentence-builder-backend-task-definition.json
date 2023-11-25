@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:af-south-1:684273795037:task-definition/SB-Backend:1",
+    "taskDefinitionArn": "arn:aws:ecs:af-south-1:684273795037:task-definition/sentence-builder-backend-task-definition:9",
     "containerDefinitions": [
         {
             "name": "SB-Backend",
@@ -16,15 +16,13 @@
             ],
             "essential": true,
             "environment": [],
-            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
-            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/SB-Backend",
+                    "awslogs-group": "/ecs/sentence-builder-backend-task-definition",
                     "awslogs-region": "af-south-1",
                     "awslogs-stream-prefix": "ecs"
                 },
@@ -32,10 +30,11 @@
             }
         }
     ],
-    "family": "SB-Backend",
+    "family": "sentence-builder-backend-task-definition",
+    "taskRoleArn": "arn:aws:iam::684273795037:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::684273795037:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 9,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -52,6 +51,9 @@
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
         },
         {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
             "name": "ecs.capability.execution-role-ecr-pull"
         },
         {
@@ -65,20 +67,15 @@
         }
     ],
     "placementConstraints": [],
-    "compatibilities": [
-        "EC2",
-        "FARGATE"
-    ],
-    "requiresCompatibilities": [
-        "FARGATE"
-    ],
+    "compatibilities": ["EC2", "FARGATE"],
+    "requiresCompatibilities": ["FARGATE"],
     "cpu": "256",
     "memory": "512",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2023-11-24T10:18:12.712Z",
+    "registeredAt": "2023-11-25T16:49:57.628Z",
     "registeredBy": "arn:aws:iam::684273795037:root",
     "tags": []
 }

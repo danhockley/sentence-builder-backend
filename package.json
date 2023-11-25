@@ -28,7 +28,9 @@
         "mongodb": "^6.3.0",
         "mongoose": "^8.0.1",
         "reflect-metadata": "^0.1.13",
-        "rxjs": "^7.5.5"
+        "rxjs": "^7.5.5",
+        "winston": "^3.11.0",
+        "winston-cloudwatch": "^6.2.0"
     },
     "devDependencies": {
         "@nestjs/cli": "^9.0.0",

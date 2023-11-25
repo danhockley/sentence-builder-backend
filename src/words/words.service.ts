@@ -1,9 +1,10 @@
-import { Injectable } from '@nestjs/common'
-
+import { Injectable, Logger } from '@nestjs/common'
 import * as fs from 'fs'
 
 @Injectable()
 export class WordsService {
+    private logger = new Logger('WordsService')
+
     // Private property to store words loaded from the configuration
     private readonly words: Record<string, string[]>
 
@@ -16,20 +17,22 @@ export class WordsService {
     // Private method to load words from the configuration file
     private loadWordsFromConfig(configPath: string): Record<string, string[]> {
         try {
-            // Read the configuration file synchronously
+            console.log('hello')
+            // Read and parse the configuration file
             const configFile = fs.readFileSync(configPath, 'utf-8')
-            // Parse the JSON content of the configuration file
+            this.logger.log('Words loaded successfully') // Log success
             return JSON.parse(configFile)
         } catch (error) {
-            // Handle errors when loading the configuration file
-            console.error(`Error loading words configuration: ${error}`)
-            // Return an empty object in case of an error
+            // Log an error message if there is an issue loading the configuration
+            const errorMessage = `Error loading words configuration: ${error}`
+            this.logger.error(errorMessage, (error as Error).stack || '')
             return {}
         }
     }
 
     // Method to get all words from the configuration
     getAllWords() {
+        this.logger.log('Getting all words.')
         return this.words
     }
 
@@ -38,13 +41,13 @@ export class WordsService {
         // Normalize the word type (capitalize the first letter, lowercase the rest)
         const normalizedWordType =
             wordType.charAt(0).toUpperCase() + wordType.slice(1).toLowerCase()
-        // Return the words of the specified type, or an empty array if not found
+        this.logger.log(`Getting words for type: ${normalizedWordType}`)
         return this.words[normalizedWordType] || []
     }
 
     // Method to get all word types from the configuration
     getWordTypes(): string[] {
-        // Extract and return the keys (word types) from the configuration
+        this.logger.log('Getting all word types.')
         return Object.keys(this.words)
     }
 }

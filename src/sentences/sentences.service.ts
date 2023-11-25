@@ -5,7 +5,6 @@ import { Sentence } from './sentence.model'
 
 @Injectable()
 export class SentencesService {
-    // Constructor to inject the Sentence model
     constructor(
         @InjectModel('Sentence')
         private readonly sentenceModel: Model<Sentence>,

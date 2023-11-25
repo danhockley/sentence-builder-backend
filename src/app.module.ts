@@ -15,5 +15,6 @@ import { SentencesModule } from './sentences/sentences.module'
     ],
     controllers: [AppController],
     providers: [AppService],
+    exports: [],
 })
 export class AppModule {}

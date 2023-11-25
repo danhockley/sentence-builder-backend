@@ -10,10 +10,7 @@ dotenv.config()
 async function bootstrap() {
     const logger = new Logger('bootstrap')
 
-    const isProduction = process.env.NODE_ENV === 'production'
-    const logLevels: LogLevel[] = isProduction
-        ? ['error', 'warn', 'log']
-        : ['error', 'warn', 'log', 'verbose', 'debug']
+    const logLevels: LogLevel[] = ['error', 'warn', 'log', 'verbose', 'debug']
 
     const app = await NestFactory.create(AppModule, { logger: logLevels })
 
